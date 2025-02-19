@@ -1,12 +1,14 @@
-FROM node:lts-alpine  
+FROM node:lts-alpine
+
 WORKDIR /app
 
-COPY package*.json ./
+# Copy package files FIRST
+COPY package*.json ./  
 
-RUN npm install 
+RUN npm install --omit=dev  
 
-COPY . .
+COPY . .  
 
 EXPOSE 5173
 
-CMD ["npm", "run", "dev"]  
+CMD ["npm", "run", "dev"] 
