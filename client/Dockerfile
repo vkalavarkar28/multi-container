@@ -1,13 +1,12 @@
-FROM node:latest
-
+FROM node:lts-alpine  
 WORKDIR /app
 
-COPY package*.json /app/
+COPY package*.json ./
 
-RUN npm install --omit=dev --force
+RUN npm install --omit=dev  
 
 COPY . .
 
 EXPOSE 5173
 
-CMD ["npm","run","dev"]
+CMD ["npm", "run", "dev"]  
