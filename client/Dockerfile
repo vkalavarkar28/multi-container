@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json /app/
 
-RUN npm i --force
+RUN npm install --omit=dev --force
 
 COPY . .
 
